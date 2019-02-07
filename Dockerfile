@@ -8,7 +8,6 @@ RUN apt-get update && \
         emacs \
         git \
         inkscape \
-        yes \
         jed \
         libsm6 \
         libxext-dev \
