@@ -35,6 +35,7 @@ RUN cd $HOME/work;\
                 sos-sas==0.9.12.3 \
                 sos-julia==0.9.12.1 \
                 sos-javascript==0.9.12.2 \
+                scipy \
                 plotly \
                 dash \
                 dash_core_components \
@@ -43,7 +44,7 @@ RUN cd $HOME/work;\
                 dash-renderer \
                 flask \
                 ipywidgets \
-                nbconvert>=5.4.0 \
+                nbconvert==5.4.0 \
                 jupyterlab>=0.35.4; \
     python -m sos_notebook.install;\
     git clone https://github.com/sct-pipeline/binder-example; \
@@ -51,6 +52,9 @@ RUN cd $HOME/work;\
     git clone --branch=master https://github.com/neuropoly/spinalcordtoolbox.git sct; \
     cd sct; \
     yes | ./install_sct; \
+    echo 'export PATH=/home/jovyan/work/binder-example/sct/bin:$PATH' >> ~/.bashrc; \
+    echo 'export MPLBACKEND='Agg'' >> ~/.bashrc; \
+    source ~/.bashrc; \
     cd .. ;\
     chmod -R 777 $HOME/work/binder-example;
 
