@@ -51,7 +51,7 @@ RUN cd $HOME/work;\
     cd binder-example;\
     git clone --branch=master https://github.com/neuropoly/spinalcordtoolbox.git sct; \
     cd sct; \
-    yes ./install_sct; \
+    yes | ./install_sct; \
     cd .. ;\
     chmod -R 777 $HOME/work/binder-example;
 
