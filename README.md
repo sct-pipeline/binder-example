@@ -5,7 +5,13 @@ Example of end-to-end processing pipeline: from Dicom data to MR quantitative re
 
 - [SCT (v4.0.0-beta.0)](https://github.com/neuropoly/spinalcordtoolbox/releases/tag/v4.0.0-beta.0).
 
-## How to run
+## How to run on MyBinder
+
+- [Open a MyBinder/JupyterLab session](https://mybinder.org/v2/gh/sct-pipeline/binder-example/master?urlpath=lab) pointing to this repository.
+- After JupyterLab loads, open a new terminal by clicking the terminal icon.
+- Run: `./batch_processing.sh`
+
+## How to run on your local computer
 
 - [Install SCT](https://github.com/neuropoly/spinalcordtoolbox#install-from-package-release)
 - Download this repository: `git clone https://github.com/sct-pipeline/binder-example.git`
