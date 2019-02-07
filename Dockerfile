@@ -52,9 +52,8 @@ RUN cd $HOME/work;\
     git clone --branch=master https://github.com/neuropoly/spinalcordtoolbox.git sct; \
     cd sct; \
     yes | ./install_sct; \
-    echo 'export PATH=/home/jovyan/work/binder-example/sct/bin:$PATH' >> ~/.bashrc; \
-    echo 'export MPLBACKEND='Agg'' >> ~/.bashrc; \
-    source ~/.bashrc; \
+    /bin/bash -c "echo 'export PATH=/home/jovyan/work/binder-example/sct/bin:$PATH' >> ~/.bashrc"; \
+    /bin/bash -c "echo 'export MPLBACKEND='Agg'' >> ~/.bashrc"; \
     cd .. ;\
     chmod -R 777 $HOME/work/binder-example;
 
