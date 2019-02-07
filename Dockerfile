@@ -1,4 +1,4 @@
-FROM neuropoly/sct:sct-v4.0.0-beta.0-ubuntu-18.04
+FROM jupyter/base-notebook:8ccdfc1da8d5
 
 USER root
 
@@ -25,7 +25,7 @@ RUN apt-get update && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN cd $HOME;\
+RUN cd $HOME/work;\
     pip install jupyter \
                 sos==0.17.7 \
                 sos-notebook==0.17.2 \
@@ -49,9 +49,13 @@ RUN cd $HOME;\
     python -m sos_notebook.install;\
     git clone https://github.com/sct-pipeline/binder-example; \
     cd binder-example;\
-    chmod -R 777 $HOME/binder-example;
+    git clone --branch=master https://github.com/neuropoly/spinalcordtoolbox.git sct; \
+    cd sct; \
+    ./install_sct; \
+    cd .. ;\
+    chmod -R 777 $HOME/work/binder-example;
 
-WORKDIR $HOME/binder-example
+WORKDIR $HOME/work/binder-example
 
 USER $NB_UID
 
