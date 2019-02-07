@@ -8,6 +8,7 @@ RUN apt-get update && \
         emacs \
         git \
         inkscape \
+        yes \
         jed \
         libsm6 \
         libxext-dev \
@@ -51,7 +52,7 @@ RUN cd $HOME/work;\
     cd binder-example;\
     git clone --branch=master https://github.com/neuropoly/spinalcordtoolbox.git sct; \
     cd sct; \
-    ./install_sct; \
+    yes ./install_sct; \
     cd .. ;\
     chmod -R 777 $HOME/work/binder-example;
 
