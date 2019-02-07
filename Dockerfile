@@ -2,7 +2,30 @@ FROM neuropoly/sct:sct-v4.0.0-beta.0-ubuntu-18.04
 
 USER root
 
-RUN cd $HOME/work;\
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential=12.4ubuntu1 \
+        emacs \
+        git \
+        inkscape \
+        jed \
+        libsm6 \
+        libxext-dev \
+        libxrender1 \
+        lmodern \
+        netcat \
+        unzip \
+        nano \
+        curl \
+        wget \
+        gfortran \
+        cmake \
+        bsdtar && \
+    apt-get clean && \
+    apt-get autoremove && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN cd $HOME;\
     pip install sos==0.17.7 \
                 sos-notebook==0.17.2 \
                 sos-python==0.9.12.1 \
@@ -23,11 +46,11 @@ RUN cd $HOME/work;\
                 nbconvert>=5.4.0 \
                 jupyterlab>=0.35.4; \
     python -m sos_notebook.install;\
-    git clone https://github.com/sct-pipeline/binder-example;                     \
+    git clone https://github.com/sct-pipeline/binder-example; \
     cd binder-example;\
-    chmod -R 777 $HOME/work/binder-example; \
+    chmod -R 777 $HOME/binder-example;
 
-WORKDIR $HOME/work/binder-example
+WORKDIR $HOME/binder-example
 
 USER $NB_UID
 
