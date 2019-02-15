@@ -55,6 +55,8 @@ RUN cd $HOME/work;\
     cd .. ;\
     chmod -R 777 $HOME/work/binder-example;
 
+ENV PATH "/home/jovyan/work/binder-example/sct/bin:$PATH"
+
 WORKDIR $HOME/work/binder-example
 
 USER $NB_UID
