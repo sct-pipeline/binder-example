@@ -57,8 +57,6 @@ RUN cd $HOME/work;\
 
 ENV PATH "/home/jovyan/work/binder-example/sct/bin:$PATH"
 
-ENV MPLBACKEND "'Agg'"
-
 WORKDIR $HOME/work/binder-example
 
 USER $NB_UID
