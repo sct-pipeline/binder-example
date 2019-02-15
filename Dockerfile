@@ -55,7 +55,7 @@ RUN cd $HOME/work;\
     cd .. ;\
     chmod -R 777 $HOME/work/binder-example;
 
-ENV PATH "/home/jovyan/work/binder-example/sct/bin:$PATH”
+ENV PATH "/home/jovyan/work/binder-example/sct/bin:$PATH"
 
 ENV MPLBACKEND "'Agg'"
 
