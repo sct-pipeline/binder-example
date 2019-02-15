@@ -47,7 +47,7 @@ RUN cd $HOME/work;\
                 nbconvert==5.4.0 \
                 jupyterlab>=0.35.4; \
     python -m sos_notebook.install;\
-    git clone https://github.com/sct-pipeline/binder-example; \
+    git clone --single-branch -b jupyter https://github.com/sct-pipeline/binder-example; \
     cd binder-example;\
     git clone --branch=master https://github.com/neuropoly/spinalcordtoolbox.git sct; \
     cd sct; \
