@@ -46,6 +46,7 @@ RUN cd $HOME/work;\
                 ipywidgets \
                 nbconvert==5.4.0 \
                 jupyterlab>=0.35.4 \
+                sklearn \
                 nilearn ; \
     python -m sos_notebook.install;\
     git clone --single-branch -b jupyter https://github.com/sct-pipeline/binder-example;     \
