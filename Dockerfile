@@ -46,6 +46,11 @@ RUN cd $HOME/work;\
                 ipywidgets \
                 nbconvert==5.4.0 \
                 jupyterlab>=0.35.4 \
+                pandas \
+                numpy \
+                datascience \
+                folium \
+                matplotlib \
                 sklearn \
                 nilearn ; \
     python -m sos_notebook.install;\
