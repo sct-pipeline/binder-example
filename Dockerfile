@@ -42,6 +42,7 @@ RUN cd $HOME/work;\
                 dash_html_components \
                 dash_dangerously_set_inner_html \
                 dash-renderer \
+                sh \
                 flask \
                 ipywidgets \
                 nbconvert==5.4.0 \
