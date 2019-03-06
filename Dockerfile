@@ -49,7 +49,7 @@ RUN cd $HOME/work;\
     python -m sos_notebook.install;\
     git clone https://github.com/sct-pipeline/binder-example; \
     cd binder-example;\
-    git clone --branch=master https://github.com/neuropoly/spinalcordtoolbox.git sct; \
+    git clone --branch=master --depth=1 https://github.com/neuropoly/spinalcordtoolbox.git sct; \
     cd sct; \
     yes | ./install_sct; \
     /bin/bash -c "echo 'export PATH=/home/jovyan/work/binder-example/sct/bin:$PATH' >> ~/.bashrc"; \
@@ -63,4 +63,4 @@ USER $NB_UID
 
 RUN jupyter labextension install @jupyterlab/plotly-extension;  \
     jupyter labextension install @jupyterlab/celltags; \
-    jupyter labextension install jupyterlab-sos 
+    jupyter labextension install jupyterlab-sos
