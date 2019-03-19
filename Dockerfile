@@ -55,7 +55,7 @@ RUN cd $HOME/work;\
                 sklearn \
                 nilearn ; \
     python -m sos_notebook.install;\
-    git clone --single-branch -b jupyter https://github.com/sct-pipeline/binder-example;       \
+    git clone --single-branch -b jupyter https://github.com/sct-pipeline/binder-example;        \
     cd binder-example;\
     git clone --branch=master https://github.com/neuropoly/spinalcordtoolbox.git sct; \
     cd sct; \
@@ -71,4 +71,4 @@ USER $NB_UID
 
 RUN jupyter labextension install @jupyterlab/plotly-extension;  \
     jupyter labextension install @jupyterlab/celltags; \
-    jupyter labextension install jupyterlab-sos 
+    jupyter labextension install jupyterlab-sos
