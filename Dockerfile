@@ -42,20 +42,28 @@ RUN cd $HOME/work;\
                 dash_html_components \
                 dash_dangerously_set_inner_html \
                 dash-renderer \
+                sh \
                 flask \
                 ipywidgets \
                 nbconvert==5.4.0 \
-                jupyterlab>=0.35.4; \
+                jupyterlab>=0.35.4 \
+                pandas \
+                numpy \
+                datascience \
+                folium \
+                matplotlib \
+                sklearn \
+                nilearn ; \
     python -m sos_notebook.install;\
-    git clone https://github.com/sct-pipeline/binder-example; \
+    git clone --single-branch -b jupyter https://github.com/sct-pipeline/binder-example;         \
     cd binder-example;\
     git clone --branch=master https://github.com/neuropoly/spinalcordtoolbox.git sct; \
     cd sct; \
     yes | ./install_sct; \
-    /bin/bash -c "echo 'export PATH=/home/jovyan/work/binder-example/sct/bin:$PATH' >> ~/.bashrc"; \
-    /bin/bash -c "echo 'export MPLBACKEND='Agg'' >> ~/.bashrc"; \
     cd .. ;\
     chmod -R 777 $HOME/work/binder-example;
+
+ENV PATH "/home/jovyan/work/binder-example/sct/bin:$PATH"
 
 WORKDIR $HOME/work/binder-example
 
@@ -63,4 +71,4 @@ USER $NB_UID
 
 RUN jupyter labextension install @jupyterlab/plotly-extension;  \
     jupyter labextension install @jupyterlab/celltags; \
-    jupyter labextension install jupyterlab-sos 
+    jupyter labextension install jupyterlab-sos
